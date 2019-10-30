@@ -25,6 +25,9 @@ app.use(express.static("public"));
 //connecting to Mongo DB
 mongoose.connect("mongodb://localhost/cookBook", { userNewUrlParser: true});
 
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
+
 app.listen(PORT, function() {
     console.log(`App is running on port ${PORT}!`);
 })
