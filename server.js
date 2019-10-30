@@ -2,31 +2,36 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-// packages we need to do the Scraping 
-const axios = require("axios");
-const cheerio = require("cheerio");
-
-// getting the models 
-const db = require("/models");
-
 const PORT = process.env.PORT || 8080;
 const app = express();
+
+// required code to deploy to heroku 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cookBook";
+mongoose.connect(MONGODB_URI);
 
 // using morgan logger for logging requests
 app.use(logger("dev"));
 
 // making req body as JSON
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Making public static folder
 app.use(express.static("public"));
 
-//connecting to Mongo DB
-mongoose.connect("mongodb://localhost/cookBook", { userNewUrlParser: true});
+//connecting to Mongo DB ask if should keep or the heroku one will cover this
+// mongoose.connect("mongodb://localhost/cookBook", { userNewUrlParser: true});
 
-require("./routes/apiRoutes.js")(app);
-require("./routes/htmlRoutes.js")(app);
+
+// Set Handlebars. remove if not going to use
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars")
+
+// require("./routes/apiRoutes.js")(app);
+// require("./routes/htmlRoutes.js")(app);
+require("./routes/scrape.js")(app);
 
 app.listen(PORT, function() {
     console.log(`App is running on port ${PORT}!`);

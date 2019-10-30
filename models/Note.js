@@ -1,13 +1,20 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // create a new NoteSchema object
 
-var NoteSchema = new Schema({
-  title: String,
-  body: String
+const NoteSchema = new Schema({
+
+  body: {
+    type: String,
+  },
+  headline: {
+    type: Schema.Types.ObjectId,
+    ref: "Article"
+  }
+
 });
  
 // This creates our model from the above schema, using mongoose's model method
