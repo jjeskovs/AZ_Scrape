@@ -6,6 +6,7 @@ module.exports = function(app){
         db.Article.find({saved: false})
         .then(function(data){
             res.render("index", {article: data});
+            // res.json(data)
         })
         .catch(function(err){
             res.json(err);
