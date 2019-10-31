@@ -1,13 +1,14 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+var exphbs = require("express-handlebars");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
 
 // required code to deploy to heroku 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cookBook";
-mongoose.connect(MONGODB_URI);
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cookBook";
+// mongoose.connect(MONGODB_URI);
 
 // using morgan logger for logging requests
 app.use(logger("dev"));
@@ -23,15 +24,17 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://localhost/cookBook", { userNewUrlParser: true});
 
 
-// Set Handlebars. remove if not going to use
-var exphbs = require("express-handlebars");
-
+// Set Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars")
+app.set("view engine", "handlebars");
+
+
 
 // require("./routes/apiRoutes.js")(app);
-// require("./routes/htmlRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 require("./routes/scrape.js")(app);
+
+
 
 app.listen(PORT, function() {
     console.log(`App is running on port ${PORT}!`);

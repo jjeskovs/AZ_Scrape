@@ -1,35 +1,21 @@
-<h1>Quotes App</h1>
-
-<p>Manage quotes with this app</p>
-
-<!-- Pass in data from server.js -->
-<ul>
-  {{#each quotes}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.quote}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
-
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
-
-      <a href="/{{this.id}}">Update this quote</a>
-  	</li>
-  {{/each}}
-</ul>
-
-<h2>Add a Quote</h2>
-
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
+<!--Scraped articles go here-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 articles">
+      <!--scraped articles go here-->
+      {{#each articles}}
+      <div class="card mt-5 article-card">
+        <div class="card-body">
+          <h5 class="card-title article-title">{{this.title}}</h5>
+          <img class="img-fluid article-img" src="{{this.img}}">
+          <br>
+          <a href='{{this.link}}' target="_blank"><button class="btn btn-primary btn-dark mt-4">Continue
+              reading</button></a>
+          <button class="btn btn-dark ml-3 mt-4 save-article-btn" data-id="{{this._id}}">Save article</button>
+          <button class="btn btn-dark ml-3 mt-4 delete-article-btn" data-id="{{this._id}}">Delete article</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Add Quote</button>
-</form>
+</div>
