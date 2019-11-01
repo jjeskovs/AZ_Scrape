@@ -31,7 +31,7 @@ app.set("view engine", "handlebars");
 
 
 // require("./routes/apiRoutes.js")(app);
-require("./routes/htmlRoutes.js")(app);
+require("./routes/routes.js")(app);
 require("./routes/scrape.js")(app);
 
 

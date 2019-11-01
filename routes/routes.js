@@ -47,20 +47,19 @@ module.exports = function(app){
     });
     // here we will toggle the switch on saved property
     function updateArticle(saved, req, res){
-        db.Article.findOneAndUpdate({ _id: req.params.id}, {saved: saved}, {new: true}, function(err, data){
-            if(err){
-                res.status(500).end();
-            }
+        db.Article.findOneAndUpdate({ _id: req.params.id}, {saved: saved}, {new: true})
+        .then(function(data){
             res.json(data);
-        });
-    }
+        })
+        .catch(function(err){
+            res.status(500).end();
+        })
+
+    };
+    
 
     app.put("/marksaved/:id", function(req, res){
-        db.updateArticle(true, req, res)
+        updateArticle(true, req, res)
     })
     
-    app.put("/markunsaved/:id", function(req, res){
-        db.updateArticle(false, req, res)
-    })
-
 }
