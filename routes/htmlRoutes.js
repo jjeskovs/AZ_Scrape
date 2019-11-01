@@ -36,31 +36,31 @@ module.exports = function(app){
     });
     
 
-    // // you guessed right, we are deleting  
-    // app.delete("/article/:id", function(req, res){
-    //     db.Article.deleteOne({ _id: req.params.id}, function(err, data){
-    //         if(err){
-    //             res.status(500).end();
-    //         }
-    //         res.json(data)
-    //     });
-    // });
-    // // here we will toggle the switch on saved property
-    // function updateArticle(saved, req, res){
-    //     db.Article.findOneAndUpdate({ _id: req.params.id}, {saved: saved}, {new: true}, function(err, data){
-    //         if(err){
-    //             res.status(500).end();
-    //         }
-    //         res.json(data);
-    //     });
-    // }
+    // you guessed right, we are deleting  
+    app.delete("/article/:id", function(req, res){
+        db.Article.deleteOne({ _id: req.params.id}, function(err, data){
+            if(err){
+                res.status(500).end();
+            }
+            res.json(data)
+        });
+    });
+    // here we will toggle the switch on saved property
+    function updateArticle(saved, req, res){
+        db.Article.findOneAndUpdate({ _id: req.params.id}, {saved: saved}, {new: true}, function(err, data){
+            if(err){
+                res.status(500).end();
+            }
+            res.json(data);
+        });
+    }
 
-    // app.put("/marksaved/:id", function(req, res){
-    //     db.updateArticle(true, req, res)
-    // })
+    app.put("/marksaved/:id", function(req, res){
+        db.updateArticle(true, req, res)
+    })
     
-    // app.put("/markunsaved/:id", function(req, res){
-    //     db.updateArticle(false, req, res)
-    // })
+    app.put("/markunsaved/:id", function(req, res){
+        db.updateArticle(false, req, res)
+    })
 
 }
