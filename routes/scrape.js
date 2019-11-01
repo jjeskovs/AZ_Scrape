@@ -36,7 +36,7 @@ module.exports = function(app) {
             });
             
             res.send("Scrape Completed")
-            window.location.href = "/"
+            
         });
         // Log the results once you've looped through each of the elements found with cheerio
     });

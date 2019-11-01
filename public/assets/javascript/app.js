@@ -13,7 +13,7 @@ $("#scrapeMe").on("click", function(event){
     location.reload();    
 })
 
-$(".saveBtn").on("click", function(){
+$(".saveBtn").on("click", function(event){
     // doing VOODOO magic 
     event.preventDefault();
     
@@ -21,6 +21,7 @@ $(".saveBtn").on("click", function(){
     const articleId = $(this).data("id");
     // console.log(articleId);
 
+    // doing the call to the back end 
     $.ajax({
         method: "PUT",
         url: `/marksaved/${articleId}`
@@ -33,4 +34,16 @@ $(".saveBtn").on("click", function(){
     
 })
     
-    
+$("#isSaved").on("click", function(event){
+    // doing VOODOO magic again
+    event.preventDefault();
+
+    //sending user to the saved article page 
+    $ajax({
+        method: "GET",
+        url: "/saved"
+        
+    })
+})
+
+
