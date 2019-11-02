@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // required code to deploy to heroku 
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cookBook";
-// mongoose.connect(MONGODB_URI);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cookBook";
+mongoose.connect(MONGODB_URI);
 
 // using morgan logger for logging requests
 app.use(logger("dev"));
