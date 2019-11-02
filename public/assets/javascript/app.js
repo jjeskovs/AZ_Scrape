@@ -1,65 +1,65 @@
+$("#scrapeMe").on("click", function(event) {
+  // doing VOODOO magic
+  event.preventDefault();
+  // alert("Scraping the website");
 
+  $.ajax({
+    method: "GET",
+    url: "/scrape"
+  });
 
-$("#scrapeMe").on("click", function(event){
-     // doing VOODOO magic 
-    event.preventDefault();
-    // alert("Scraping the website");
-
-    $.ajax({
-        method: "GET",
-        url: "/scrape"
-    })
-    
-    location.reload();    
+  location.reload();
 });
 
-$(".saveBtn").on("click", function(event){
-    // doing VOODOO magic 
-    event.preventDefault();
-    
-    // grabbing the id from the clicked article. 
-    const articleId = $(this).data("id");
-    // console.log(articleId);
+$(".saveBtn").on("click", function(event) {
+  // doing VOODOO magic
+  event.preventDefault();
 
-    // doing the call to the back end 
-    $.ajax({
-        method: "PUT",
-        url: `/marksaved/${articleId}`
+  // grabbing the id from the clicked article.
+  const articleId = $(this).data("id");
+  // console.log(articleId);
 
-    })
-    .then(function(data){
-        console.log(data);
-        location.reload();   
-    })
-    
+  // doing the call to the back end
+  $.ajax({
+    method: "PUT",
+    url: `/marksaved/${articleId}`
+  }).then(function(data) {
+    console.log(data);
+    location.reload();
+  });
 });
 
-$(".deleteBtn").on("click", function(event){
-     // doing VOODOO magic 
-     event.preventDefault();
+$(".deleteBtn").on("click", function(event) {
+  // doing VOODOO magic
+  event.preventDefault();
 
-     // grabbing the id from the clicked article. 
-    const articleId = $(this).data("id");
+  // grabbing the id from the clicked article.
+  const articleId = $(this).data("id");
 
-    $.ajax({
-        method: "DELETE",
-        url: `/article/${articleId}`
-
-    })
-    .then(function(data){
-        console.log(data)
-        location.reload();
-    })
+  $.ajax({
+    method: "DELETE",
+    url: `/article/${articleId}`
+  }).then(function(data) {
+    console.log(data);
+    location.reload();
+  });
 });
 
-$(".notesBtn").on("click", function(event){
-    // doing VOODOO magic 
+$(".notesBtn").on("click", function(event) {
+    // doing VOODOO magic
     event.preventDefault();
-    
+    // grabbing the id from the clicked article.
+    let articleId = $(this).data("id");
+    let note = $(".noteText").val();
+    console.log(note);
 
-
-})
-    
-
-
-
+  $.ajax({
+    method: "POST",
+    url: `/articles/${articleId}`,
+    data: {
+        body: note
+    }
+  }).then(function(data) {
+    console.log("from then", data);
+  });
+});

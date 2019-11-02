@@ -62,43 +62,40 @@ module.exports = function(app) {
 
   // all above is working I hope :)
 
-  
+
   // Route for saving a new Note to the db and associating it with a User
-  app.post("/submit", function(req, res) {
-    // Create a new Note in the db
+  app.get("/articles/:id", function(req, res) {
+    // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+    db.Article.findOne({ _id: req.params.id })
+      // ..and populate all of the notes associated with it
+      
+        .populate("note")
+        .then(function(dbArticle) {
+            // If we were able to successfully find an Article with the given id, send it back to the client
+            res.json(dbArticle);
+        })
+        .catch(function(err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+app.post("/articles/:id", function(req, res) {
+    console.log("hello", req.body)
+    // Create a new note and pass the req.body to the entry
     db.Note.create(req.body)
       .then(function(dbNote) {
-        // If a Note was created successfully, find one User (there's only one) and push the new Note's _id to the User's `notes` array
+        // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
         // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
         // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-        return db.User.findOneAndUpdate(
-          {},
-          { $push: { notes: dbNote._id } },
-          { new: true }
-        );
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
       })
-      .then(function(dbUser) {
-        // If the User was updated successfully, send it back to the client
-        res.json(dbUser);
+      .then(function(dbArticle) {
+        // If we were able to successfully update an Article, send it back to the client
+        res.json(dbArticle);
       })
       .catch(function(err) {
-        // If an error occurs, send it back to the client
-        res.json(err);
-      });
-  });
-
-  // Route to get all User's and populate them with their notes
-  app.get("/populateduser", function(req, res) {
-    // Find all users
-    db.User.find({})
-      // Specify that we want to populate the retrieved users with any associated notes
-      .populate("notes")
-      .then(function(dbUser) {
-        // If able to successfully find and associate all Users and Notes, send them back to the client
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        // If an error occurs, send it back to the client
+        // If an error occurred, send it to the client
         res.json(err);
       });
   });

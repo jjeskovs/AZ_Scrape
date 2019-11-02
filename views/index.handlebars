@@ -1,4 +1,3 @@
-
 {{> jumbotron-home}}
 {{> home-buttons}}
 
@@ -12,9 +11,10 @@
         <div class="card-body">
           <h5 class="card-title article-title">{{title}}</h5>
           <img class="img-fluid article-img" src="{{img}}">
-          <a href='{{this.link}}' target="_blank"><button class="btn btn-primary btn-dark ml-4 mr-2 mt-4">Get the Recipe</button></a>
-          <button class="btn btn-dark ml-3 mt-4 mr-2 saveBtn" data-id="{{_id}}">Save article</button>
-          <button class="btn btn-dark ml-3 mt-4 deleteBtn" data-id="{{_id}}">Delete article</button>
+          <a href='{{this.link}}' target="_blank"><button class="btn btn-primary btn-secondary ml-4 mr-2 mt-4">Get the
+              Recipe</button></a>
+          <button class="btn btn-secondary ml-3 mt-4 mr-2 saveBtn" data-id="{{_id}}">Save article</button>
+          <button class="btn btn-secondary ml-3 mt-4 deleteBtn" data-id="{{_id}}">Delete article</button>
         </div>
       </div>
       {{/each}}
@@ -23,16 +23,15 @@
 </div>
 
 <footer>
-      <div class="container my-5 mb-0 shadow-lg p-3 mb-5 bg-white rounded">
-       
-        <span> | </span>
-        <a> Jegors Jeskovs </a> 
-        <span> | </span>
-      <a class="sources" href="https://github.com/jjeskovs/Burger"
-          >GitHub Repo</a>
+  <div class="container my-5 mb-0 shadow-lg p-3 mb-5 bg-white rounded">
 
-        <span> | </span>
+    <span> | </span>
+    <a> Jegors Jeskovs </a>
+    <span> | </span>
+    <a class="sources" href="https://github.com/jjeskovs/Burger">GitHub Repo</a>
 
-      
-      </div>
-    </footer>
+    <span> | </span>
+
+
+  </div>
+</footer>

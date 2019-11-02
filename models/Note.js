@@ -9,10 +9,6 @@ const NoteSchema = new Schema({
 
   body: {
     type: String,
-  },
-  headline: {
-    type: Schema.Types.ObjectId,
-    ref: "Article"
   }
 
 });

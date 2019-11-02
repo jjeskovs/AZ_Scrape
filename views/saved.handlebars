@@ -2,16 +2,24 @@
 {{> jumbotron-saved}}
 {{> saved-buttons}}
 
-{{#each article}}
-    <div class="card mt-5">
-        <div class="card-body bg-Secondary">
-            <h5 class="card-title article-title">{{title}}</h5>
-            <p class="card-text article-summary">{{summary}}</p>
-            <img class="img-fluid article-img" src="{{img}}">
-            <br>
-            <a href='{{this.link}}' target="_blank"><button class="btn btn-primary btn-dark mt-4">Read the Recipe</button></a>
-            <button class="btn btn-primary btn-dark ml-3 mt-4 deleteBtn" data-id="{{_id}}">Delete article</a>
-            <button class="btn btn-dark ml-3 mt-4 notesBtn" data-id="{{_id}}">Leave a note</button>
+            {{#each article}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 articles">
+            <div class="card mt-5 article-card">
+                <div class="card-body">
+                    <h5 class="card-title article-title">{{title}}</h5>
+                    <p class="card-text article-summary">{{summary}}</p>
+                    <img class="img-fluid article-img" src="{{img}}">
+                    {{!-- <br> --}}
+                    <textarea class="noteText form-control" aria-label="With textarea"></textarea>
+                    <a href='{{this.link}}' target="_blank"><button class="btn btn-primary btn-secondary mt-4">Read the
+                            Recipe</button></a>
+                    <button class="btn btn-primary btn-secondary ml-3 mt-4 deleteBtn" data-id="{{_id}}">Delete article</a>
+                        <button class="btn btn-secondary ml-3 mt-4 notesBtn" data-id="{{_id}}">Save a note</button>
+                </div>
+            </div>
         </div>
     </div>
-{{/each}} 
+</div>
+{{/each}}
