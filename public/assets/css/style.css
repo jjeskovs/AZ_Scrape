@@ -2,3 +2,30 @@ h1 {
     font-family: 'Pacifico', cursive;
     /* background-color: rgb(55, 65, 66); */
   }
+
+  footer {
+    /* background-color: grey; */
+    margin-bottom: 0px;
+    border-radius: 5px;
+    font-family: 'Long Cang', cursive;
+    font-size: 25px;
+  }
+  img {
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
+  h5 {
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+  }
+
+  body {
+    background-image: url("../images/background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  }
