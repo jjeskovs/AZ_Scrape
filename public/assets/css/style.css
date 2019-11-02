@@ -2,29 +2,37 @@ h1 {
     font-family: 'Pacifico', cursive;
     /* background-color: rgb(55, 65, 66); */
   }
-
-  footer {
-    /* background-color: grey; */
-    margin-bottom: 0px;
-    border-radius: 5px;
-    font-family: 'Long Cang', cursive;
-    font-size: 25px;
+  .jumbotron {
+    background-image: url("../images/jumbotron.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
+ 
   img {
     border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin-top: 0.5rem;
+    margin-bottom: 4rem;
+    margin-left: 4rem;
   }
 
   h5 {
-    color: whitesmoke;
     text-align: center;
     font-family: 'Dancing Script', cursive;
-    font-size: 35px;
+    font-size: 2.5rem;
   }
 
   body {
-    background-image: url("../images/background.jpeg");
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card-body {
+    color: orangered;
+    border-radius: 5px;
+    background-image: url("../images/card-body.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -40,3 +48,14 @@ h1 {
     /* display: none; */
     
   }
+
+  footer {
+    /* background-color: grey; */
+    margin-bottom: 0px;
+    border-radius: 5px;
+    font-family: 'Long Cang', cursive;
+    font-size: 1.5rem;
+  }
+
+
+  
