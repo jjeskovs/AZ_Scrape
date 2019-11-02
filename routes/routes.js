@@ -16,13 +16,16 @@ module.exports = function(app) {
   // to display all saved articles
   app.get("/saved", function(req, res) {
     db.Article.find({ saved: true })
-      .then(function(data) {
+    .populate("note")  
+    .then(function(data) {
         res.render("saved", { article: data });
       })
       .catch(function(err) {
         res.json(err);
       });
   });
+
+
   //to display all saved and unsaved articles
   app.get("/all", function(req, res) {
     db.Article.find({})
