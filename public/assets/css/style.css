@@ -3,7 +3,7 @@ h1 {
     /* background-color: rgb(55, 65, 66); */
   }
   .jumbotron {
-    background-image: url("../images/jumbotron.jpg");
+    /* background-image: url("../images/jumbotron.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -23,7 +23,7 @@ h1 {
   }
 
   body {
-    background-image: url("../images/background.jpg");
+    /* background-image: url("../images/background.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,7 +32,7 @@ h1 {
   .card-body {
     color: orangered;
     border-radius: 5px;
-    background-image: url("../images/card-body.jpg");
+    /* background-image: url("../images/card-body.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
