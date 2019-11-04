@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //connecting to Mongo DB ask if should keep or the heroku one will cover this
-mongoose.connect("mongodb://localhost/cookBook", { userNewUrlParser: true});
+// mongoose.connect(MONGODB_URI);
 
 
 // Set Handlebars.
