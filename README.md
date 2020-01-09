@@ -1,3 +1,4 @@
+![logo](assets/images/WebScraper.png)
 # Web Scraper
 
 The app is the web scraping application setup to scrape the data from Andrew Zimmern website. The scraping process is a process of grabbing the information from website using Cheerio scraping tool. 
@@ -23,14 +24,6 @@ The app also has the option to store additional notes (comments) for each articl
 
 <pre>https://floating-shore-96773.herokuapp.com/</pre>
 
-
-
-
-The app cab also be run locally on your machine. The package.jason file has all the necessary dependencies. 
-
-Please run the "npm i" command in your CLI for all necessary installations. 
-
-Once all the dependencies are installed the app can be run using node.js.
 
 ## The technology used for this
 
