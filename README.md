@@ -29,6 +29,8 @@ For the saved articles, the user has an option to store notes (comments) for an 
 
 ## The technology used for this
 
+* JavaScript 
+* Bootstrap
 * Express
 * Express-Handlebars
 * Mongo DB
