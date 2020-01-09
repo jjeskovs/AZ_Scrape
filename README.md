@@ -30,8 +30,8 @@ For the saved articles, the user has an option to store notes (comments) for an 
 ## The technology used for this
 
 * Express
-* Express-handlebars
-* Mongoose
-* Cheerio
+* Express-Handlebars
+* Mongo DB
+* Cheerio.JS
 * Axios
 * Heroku
