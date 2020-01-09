@@ -1,4 +1,4 @@
-![logo](assets/images/WebScraper.png)
+![logo](public/assets/images/WebScraper.png)
 # Web Scraper
 
 The app is the web scraping application setup to scrape the data from Andrew Zimmern website. The scraping process is a process of grabbing the information from website using Cheerio scraping tool. 
