@@ -1,11 +1,13 @@
 ![logo](public/assets/images/WebScraper.png)
 # Web Scraper
 
-The app is the web scraping application setup to scrape the data from Andrew Zimmern website. The scraping process is a process of grabbing the information from website using Cheerio scraping tool. 
+The app is the web scraping application setup to scrape the data from Andrew Zimmern website. The scraping process is a process of grabbing the information from a website using Cheerio.JS scraping tool. 
 
-After that data has been scraped it is stored in the Mongo database.  
+After that data has been scraped it is displayed in the app and is stored in the Mongo database. 
 
-The app also has the option to store additional notes (comments) for each article of data. The notes are associated with the specific article and are stored in the database. The notes can be edited and or removed from the article and database. 
+The user then has the ability to save articles for future reading or delete the article. 
+
+For the saved articles, the user has an option to store notes (comments) for an article of his choosing. The notes are then associated with the specific article and are stored in the database. The notes can be edited and or removed from the article and database. 
 
 
 ## Getting Started
