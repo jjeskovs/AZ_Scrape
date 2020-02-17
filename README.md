@@ -9,6 +9,10 @@ The user then has the ability to save articles for future reading or delete the 
 
 For the saved articles, the user has an option to store notes (comments) for an article of his choosing. The notes are then associated with the specific article and are stored in the database. The notes can be edited and or removed from the article and database. 
 
+The live version of the app can be accessed by clicking the link below:
+
+https://github.com/jjeskovs/Web-Scraper.git
+
 
 ## Getting Started
 1. Clone the repository 
